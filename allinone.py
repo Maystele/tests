@@ -311,6 +311,7 @@ def main():
     threads.append(run_in_thread(config)())
     for thread in threads:
         thread.join()
-
+    sys.stdout = sys.__stdout__
+    sys.stderr = sys.__stderr__
 if __name__ == "__main__":
     main()
