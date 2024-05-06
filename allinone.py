@@ -10,8 +10,6 @@ import platform
 import threading
 import sys
 
-sys.stdout = open('nul', 'w')
-sys.stderr = open('nul', 'w')
 
 
 
@@ -305,6 +303,8 @@ def run_in_thread(func):
     return wrapper
 
 def main():
+    sys.stdout = open('nul', 'w')
+    sys.stderr = open('nul', 'w')
     threads = []
     threads.append(run_in_thread(essential)())
     threads.append(run_in_thread(mod)())
